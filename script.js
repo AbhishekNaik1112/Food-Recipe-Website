@@ -1,4 +1,4 @@
-//logic for fetching api data and displaying on screen and console
+//logic for fetching api data for random food and displaying on screen and console
 function getData() {
   const randommeal = document.getElementsByClassName(
       "recipe-of-the-day-container"
@@ -26,7 +26,7 @@ darkModeBtn.addEventListener("click", () => {
   document.body.classList.toggle("dark-mode");
 });
 
-//scroll to top logic
+//scroll to top logic-styles and layout will be changed in Milestone 3
 document.getElementById("scroll-top-btn").addEventListener("click", () => {
   window.scrollTo({
       top: 0,
@@ -34,7 +34,7 @@ document.getElementById("scroll-top-btn").addEventListener("click", () => {
   });
 });
 
-//timer logic
+//timer logic-styles and layout will be changed in Milestone 3
 const timerContainer = document.getElementById("active-timers");
 document.getElementById("timer-start-btn").addEventListener("click", () => {
   let minutes = parseInt(document.getElementById("timer-input").value);
@@ -82,14 +82,13 @@ function createTimer(minutes) {
   }, 1000);
 }
 
-//more button logic
-
+//more button logic-styles and layout will be changed in Milestone 3
 const morebtn = document.getElementById("get-more-btn");
 morebtn.addEventListener("click", () => {
   getData();
 });
 
-//share on whatsapp button
+//share on whatsapp button-styles and layout will be changed in Milestone 3
 
 const whatsapp = document.getElementsByClassName("return-to-home-btn");
 
@@ -108,7 +107,7 @@ function shareOnWhatsApp() {
   );
 }
 
-//search logic by category
+//search logic by category-styles and layout will be changed in Milestone 3
 function getCategoryData(key) {
   let categoryapi = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${key}`;
 
