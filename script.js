@@ -97,7 +97,6 @@ for (let i = 0; i < whatsapp.length; i++) {
     shareOnWhatsApp();
   });
 }
-
 function shareOnWhatsApp() {
   const textToShare =
     "This site is a great place to look for recipes.Give it a try." +
@@ -110,19 +109,34 @@ function shareOnWhatsApp() {
 
 
 //search logic
-document.addEventListener('DOMContentLoaded', function () {
-    const searchbtn = document.getElementById("search");
-    const searchvalue = document.getElementById("search-term");
+function getCategoryData(search) {
+  const categoryapi = `https://www.themealdb.com/api/json/v1/1/filter.php?i=${search}`;
+ 
+  fetch(categoryapi)
+     .then((response) => response.json())
+     .then((data) => {
+       const result = data;
+       console.log(result);
+     });
+ }
+ 
+ document.addEventListener('DOMContentLoaded', function () {
+  const searchbtn = document.getElementById("search");
+  const searchvalue = document.getElementById("search-term");
+ 
+  searchbtn.addEventListener('click', function () {
+     var search = searchvalue.value;
+     console.log(search);
+     getCategoryData(search);
+  });
+ 
+  searchvalue.addEventListener('keypress', function (event) {
+     if (event.key === 'Enter') {
+       var search = searchvalue.value;
+       console.log(search);
+       getCategoryData(search);
+     }
+  });
+ });
 
-    searchbtn.addEventListener('click', function () {
-        var search = searchvalue.value;
-        console.log(search);
-    });
 
-    searchvalue.addEventListener('keypress', function (event) {
-        if (event.key === 'Enter') {
-            var search = searchvalue.value;
-            console.log(search);
-        }
-    });
-});
