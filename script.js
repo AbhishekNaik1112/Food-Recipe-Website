@@ -80,3 +80,10 @@ function createTimer(minutes) {
     }
   }, 1000);
 }
+
+//more button logic
+
+const morebtn = document.getElementById("get-more-btn");
+morebtn.addEventListener("click", () => {
+  getData();
+});
