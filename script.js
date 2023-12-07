@@ -108,7 +108,7 @@ function shareOnWhatsApp() {
 }
 
 
-//search logic
+//search logic by category
 function getCategoryData(search) {
   const categoryapi = `https://www.themealdb.com/api/json/v1/1/filter.php?i=${search}`;
  
