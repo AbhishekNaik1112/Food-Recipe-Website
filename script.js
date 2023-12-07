@@ -1,38 +1,35 @@
 //logic for fetching api data for random food and displaying on screen and console and modal of the random food
 
 function getData() {
-	const randommeal = document.getElementsByClassName("recipe-of-the-day-container");
+    const randommeal = document.getElementsByClassName("recipe-of-the-day-container");
 
-	const apiUrl = `https://www.themealdb.com/api/json/v1/1/random.php`;
+    const apiUrl = `https://www.themealdb.com/api/json/v1/1/random.php`;
 
-	fetch(apiUrl)
-		.then((response) => response.json())
-		.then((data) => {
-			const result = data.meals[0];
-			console.log(result);
+    fetch(apiUrl)
+        .then((response) => response.json())
+        .then((data) => {
+            const result = data.meals[0];
+            console.log(result);
 
-			randommeal[0].innerHTML = `
+            randommeal[0].innerHTML = `
                 <h2>${result.strMeal}</h2>
                 <img id="meal-img" src="${result.strMealThumb}" alt="${result.strMeal}">
             `;
 
+            randommeal[0].recipeDetails = {
+                meal: result.strMeal,
+                ingredients: getIngredients(result),
+                instructions: result.strInstructions,
+            };
 
-			randommeal[0].recipeDetails = {
-				meal: result.strMeal,
-				ingredients: getIngredients(result),
-				instructions: result.strInstructions,
-			};
-
-
-			randommeal[0].onclick = displayRecipeModal;
-		});
+            randommeal[0].onclick = displayRecipeModal;
+        });
 }
 
 function displayRecipeModal() {
-	const recipeDetails = document.getElementsByClassName("recipe-of-the-day-container")[0].recipeDetails;
+    const recipeDetails = document.getElementsByClassName("recipe-of-the-day-container")[0].recipeDetails;
 
-
-	const modalContent = `
+    const modalContent = `
         <h2>${recipeDetails.meal}</h2>
         <h3>Ingredients:</h3>
         <ul>${recipeDetails.ingredients}</ul>
@@ -40,22 +37,22 @@ function displayRecipeModal() {
         <p>${recipeDetails.instructions}</p>
     `;
 
-	Swal.fire({
-		html: modalContent,
-		confirmButtonText: 'Close',
-	});
+    Swal.fire({
+        html: modalContent,
+        confirmButtonText: 'Close',
+    });
 }
 
 function getIngredients(result) {
-	const ingredients = [];
-	for (let i = 1; i <= 20; i++) {
-		const ingredient = result[`strIngredient${i}`];
-		const measure = result[`strMeasure${i}`];
-		if (ingredient && measure) {
-			ingredients.push(`${measure} ${ingredient}`);
-		}
-	}
-	return ingredients.join('<br>');
+    const ingredients = [];
+    for (let i = 1; i <= 20; i++) {
+        const ingredient = result[`strIngredient${i}`];
+        const measure = result[`strMeasure${i}`];
+        if (ingredient && measure) {
+            ingredients.push(`<li>${measure} ${ingredient}</li>`);
+        }
+    }
+    return ingredients.join('');
 }
 
 getData();
