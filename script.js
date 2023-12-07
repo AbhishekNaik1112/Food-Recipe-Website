@@ -1,5 +1,4 @@
-
-//fetching api data and displaying on screen and console
+//logic for fetching api data and displaying on screen and console
 function getData() {
   const randommeal = document.getElementsByClassName(
     "recipe-of-the-day-container"
@@ -21,20 +20,63 @@ function getData() {
 
 getData();
 
-//Dark Mode-styles and layout will be changed in Milestone 3
-const darkModeBtn = document.getElementById('dark-mode-btn');
-darkModeBtn.addEventListener('click', () => {
-    document.body.classList.toggle('dark-mode');
+//Dark Mode logic-styles and layout will be changed in Milestone 3
+const darkModeBtn = document.getElementById("dark-mode-btn");
+darkModeBtn.addEventListener("click", () => {
+  document.body.classList.toggle("dark-mode");
 });
 
-//scroll to top
-document.getElementById('scroll-top-btn').addEventListener('click', () => {
+//scroll to top logic
+document.getElementById("scroll-top-btn").addEventListener("click", () => {
   window.scrollTo({
-      top: 0, 
-      behavior: 'smooth' 
+    top: 0,
+    behavior: "smooth",
   });
 });
 
+//timer logic
+const timerContainer = document.getElementById("active-timers");
+document.getElementById("timer-start-btn").addEventListener("click", () => {
+  let minutes = parseInt(document.getElementById("timer-input").value);
+  if (isNaN(minutes) || minutes <= 0) {
+    alert("Please enter a valid number of minutes.");
+    return;
+  }
 
+  createTimer(minutes);
+});
+function createTimer(minutes) {
+  const endTime = new Date(new Date().getTime() + minutes * 60000);
+  const timerItem = document.createElement("li");
+  const endTimeSpan = document.createElement("span");
+  const countdownSpan = document.createElement("span");
+  const removeBtn = document.createElement("button");
 
+  removeBtn.innerText = "Remove";
+  removeBtn.onclick = () => {
+    clearInterval(timerItem.intervalId);
+    timerItem.remove();
+  };
 
+  endTimeSpan.innerText = `Ends at ${endTime.toLocaleTimeString()} `;
+  countdownSpan.innerText = `${minutes}m 00s remaining`;
+
+  timerItem.appendChild(endTimeSpan);
+  timerItem.appendChild(countdownSpan);
+  timerItem.appendChild(removeBtn);
+  timerContainer.appendChild(timerItem);
+
+  timerItem.intervalId = setInterval(() => {
+    const now = new Date();
+    const timeLeft = endTime.getTime() - now.getTime();
+
+    if (timeLeft <= 0) {
+      clearInterval(timerItem.intervalId);
+      countdownSpan.innerText = `Time's up!`;
+    } else {
+      const minutesLeft = Math.floor(timeLeft / 60000);
+      const secondsLeft = Math.floor((timeLeft % 60000) / 1000);
+      countdownSpan.innerText = `${minutesLeft}m ${secondsLeft}s remaining`;
+    }
+  }, 1000);
+}
