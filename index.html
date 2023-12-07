@@ -5,7 +5,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>~Pocket Kitchen~</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+    />
     <link rel="stylesheet" href="styles.css" />
     <script src="script.js" defer></script>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -13,61 +16,61 @@
 
 <body>
 
-    <div class="mobile-container">
+<div class="mobile-container">
 
-        <h1 class="h1" id="h1">~Pocket Kitchen~</h1>
+    <h1 class="h1" id="h1">~Pocket Kitchen~</h1>
 
-        <h3 class="h3" id="h3">......</h3>
+    <h3 class="h3" id="h3">......</h3>
 
-        <header>
-            <input type="text" id="search-term" placeholder="Search For Any Meal..." />
-            <button id="search" style="margin-top: -10px"><i class="fas fa-search"></i></button>
-        </header>
+    <header>
+        <input type="text" id="search-term" placeholder="Search For Any Meal..." />
+        <button id="search" style="margin-top: -10px"><i class="fas fa-search"></i></button>
+    </header>
 
-        <button id="back-to-home-btn" class="hidden">Back to Homepage</button>
+    <button id="back-to-home-btn" class="hidden">Back to Homepage</button>
 
-        <div class="fav-container">
-            <h3 id="h3-1">Your Favorite Meals</h3>
-            <ul class="fav-meals" id="fav-meals"></ul>
-        </div>
-
-        <div class="recipe-of-the-day-container">
-            <h3 class="h3" style="color: black">Recipe of the Day</h3>
-            <div id="recipe-of-the-day"></div>
-        </div>
-
-        <div class="meals" id="meals"></div>
-
-        <div id="timer-container">
-            <h3>Cooking Timer</h3>
-            <input type="number" id="timer-input" placeholder="Enter Minutes" min="1" />
-            <button id="timer-start-btn">Start</button>
-            <ul id="active-timers"></ul>
-        </div>
-
-        <button class="return-to-home-btn" id="get-more-btn">Get More Random Recipes</button>
-
-        <button id="scroll-top-btn">Scroll to Top</button>
-
-        <br>
-
-        <button class="return-to-home-btn" onclick="">Share on WhatsApp</button>
-
-        <button onclick="window.location.href='about.html'" class="return-to-home-btn" style="margin-top: 25px">About
-            ~Pocket Kitchen~</button>
-
-        <h6>Made by Abhishek</h6>
+    <div class="fav-container">
+        <h3 id="h3-1">Your Favorite Meals</h3>
+        <ul class="fav-meals" id="fav-meals"></ul>
     </div>
 
-    <div class="popup-container hidden" id="meal-popup">
-        <div class="popup">
-            <button id="close-popup" class="close-popup" title="Close">
-                <i class="fas fa-times" style="color: black"></i>
-            </button>
-            <div class="meal-info" id="meal-info"></div>
-        </div>
+    <div class="recipe-of-the-day-container">
+        <h3 class="h3" style="color: black">Recipe of the Day</h3>
+        <div id="recipe-of-the-day"></div>
     </div>
-    <script src="script.js"></script>
+
+    <div class="meals" id="meals"></div>
+
+    <div id="timer-container">
+        <h3>Cooking Timer</h3>
+        <input type="number" id="timer-input" placeholder="Enter Minutes" min="1" />
+        <button id="timer-start-btn">Start</button>
+        <ul id="active-timers"></ul>
+    </div>
+
+    <button class="return-to-home-btn" id="get-more-btn">Get More Random Recipes</button>
+
+    <button id="scroll-top-btn">Scroll to Top</button>
+
+    <br>
+
+    <button class="return-to-home-btn" onclick="">Share on WhatsApp</button>
+
+    <button onclick="window.location.href='about.html'" class="return-to-home-btn" style="margin-top: 25px">About ~Pocket Kitchen~</button>
+
+    <h6>Made by Abhishek</h6>
+</div>
+
+<div class="popup-container hidden" id="meal-popup">
+    <div class="popup">
+        <button id="close-popup" class="close-popup" title="Close">
+            <i class="fas fa-times" style="color: black"></i>
+        </button>
+        <div class="meal-info" id="meal-info"></div>
+    </div>
+</div>
+<button id="dark-mode-btn">Toggle Dark Mode</button>
+<script src="script.js"></script>
 </body>
 
 </html>

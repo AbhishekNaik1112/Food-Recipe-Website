@@ -1,3 +1,5 @@
+
+//fetching api data and displaying on screen and console
 function getData() {
   const randommeal = document.getElementsByClassName(
     "recipe-of-the-day-container"
@@ -19,3 +21,9 @@ function getData() {
 }
 
 getData();
+
+//dark mode button will change layout in Milestone 3 
+const darkModeBtn = document.getElementById('dark-mode-btn');
+darkModeBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+});
