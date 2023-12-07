@@ -101,9 +101,28 @@ for (let i = 0; i < whatsapp.length; i++) {
 function shareOnWhatsApp() {
   const textToShare =
     "This site is a great place to look for recipes.Give it a try." +
-    "\n" +
-    "\n";
+    `https://abhisheknaik1112.github.io/Food-Recipe-Website/`
+    ;
   window.open(
-    "https://api.whatsapp.com/send?text=" + encodeURIComponent(textToShare)
+    "https://api.whatsapp.com/send?text="+ encodeURIComponent(textToShare)
   );
 }
+
+
+//search logic
+document.addEventListener('DOMContentLoaded', function () {
+    const searchbtn = document.getElementById("search");
+    const searchvalue = document.getElementById("search-term");
+
+    searchbtn.addEventListener('click', function () {
+        var search = searchvalue.value;
+        console.log(search);
+    });
+
+    searchvalue.addEventListener('keypress', function (event) {
+        if (event.key === 'Enter') {
+            var search = searchvalue.value;
+            console.log(search);
+        }
+    });
+});
