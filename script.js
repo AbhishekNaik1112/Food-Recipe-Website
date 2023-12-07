@@ -15,15 +15,26 @@ function getData() {
 
       randommeal[0].innerHTML = `
           <h2>${result.strMeal}</h2>
-          <img id="meal-img" src="${result.strMealThumb}" alt="${result.strMeal}">
-        `;
+          <img id="meal-img" src="${result.strMealThumb}" alt="${result.strMeal}">`;
     });
 }
 
 getData();
 
-//dark mode button will change layout in Milestone 3 
+//Dark Mode-styles and layout will be changed in Milestone 3
 const darkModeBtn = document.getElementById('dark-mode-btn');
 darkModeBtn.addEventListener('click', () => {
     document.body.classList.toggle('dark-mode');
 });
+
+//scroll to top
+document.getElementById('scroll-top-btn').addEventListener('click', () => {
+  window.scrollTo({
+      top: 0, 
+      behavior: 'smooth' 
+  });
+});
+
+
+
+
