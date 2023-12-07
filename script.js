@@ -100,24 +100,26 @@ for (let i = 0; i < whatsapp.length; i++) {
 function shareOnWhatsApp() {
   const textToShare =
     "This site is a great place to look for recipes.Give it a try." +
-    `https://abhisheknaik1112.github.io/Food-Recipe-Website/`
-    ;
+    `https://abhisheknaik1112.github.io/Food-Recipe-Website/`;
   window.open(
-    "https://api.whatsapp.com/send?text="+ encodeURIComponent(textToShare)
+    "https://api.whatsapp.com/send?text=" + encodeURIComponent(textToShare)
   );
 }
 
-
 //search logic by category
-function getCategoryData(search) {
-  const categoryapi = `https://www.themealdb.com/api/json/v1/1/filter.php?i=${search}`;
+function getCategoryData(key) {
+  let categoryapi = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${key}`;
+  // let categoryapi = "https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood"
  
   fetch(categoryapi)
      .then((response) => response.json())
-     .then((data) => {
-       const result = data;
+     .then((result) => {
+      //  const result = data;
        console.log(result);
-     });
+     })
+     .catch((err)=>{
+      console.log("ll",err.message)
+     })
  }
  
  document.addEventListener('DOMContentLoaded', function () {
@@ -138,5 +140,3 @@ function getCategoryData(search) {
      }
   });
  });
-
-
