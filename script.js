@@ -109,31 +109,45 @@ function shareOnWhatsApp() {
 //search logic by category
 function getCategoryData(key) {
   let categoryapi = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${key}`;
-  // let categoryapi = "https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood"
  
   fetch(categoryapi)
      .then((response) => response.json())
      .then((result) => {
-      //  const result = data;
-       console.log(result);
+       const meals = result.meals;
+       displayMeals(meals);
      })
-     .catch((err)=>{
-      console.log("ll",err.message)
-     })
+     .catch((err) => {
+       console.log("ll", err.message);
+     });
  }
  
- document.addEventListener('DOMContentLoaded', function () {
+ function displayMeals(meals) {
+  const mealsList = document.getElementById("meals");
+  mealsList.innerHTML = "";
+ 
+  meals.forEach((meal) => {
+     const mealCard = `
+     <div class="meal-card">
+       <img src="${meal.strMealThumb}" alt="${meal.strMeal}">
+       <h3>${meal.strMeal}</h3>
+     </div>
+     `;
+     mealsList.innerHTML += mealCard;
+  });
+ }
+ 
+ document.addEventListener("DOMContentLoaded", function () {
   const searchbtn = document.getElementById("search");
   const searchvalue = document.getElementById("search-term");
  
-  searchbtn.addEventListener('click', function () {
+  searchbtn.addEventListener("click", function () {
      var search = searchvalue.value;
      console.log(search);
      getCategoryData(search);
   });
  
-  searchvalue.addEventListener('keypress', function (event) {
-     if (event.key === 'Enter') {
+  searchvalue.addEventListener("keypress", function (event) {
+     if (event.key === "Enter") {
        var search = searchvalue.value;
        console.log(search);
        getCategoryData(search);
