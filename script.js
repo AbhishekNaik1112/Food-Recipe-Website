@@ -87,3 +87,23 @@ const morebtn = document.getElementById("get-more-btn");
 morebtn.addEventListener("click", () => {
   getData();
 });
+
+//share on whatsapp button
+
+const whatsapp = document.getElementsByClassName("return-to-home-btn");
+
+for (let i = 0; i < whatsapp.length; i++) {
+  whatsapp[i].addEventListener("click", () => {
+    shareOnWhatsApp();
+  });
+}
+
+function shareOnWhatsApp() {
+  const textToShare =
+    "This site is a great place to look for recipes.Give it a try." +
+    "\n" +
+    "\n";
+  window.open(
+    "https://api.whatsapp.com/send?text=" + encodeURIComponent(textToShare)
+  );
+}
