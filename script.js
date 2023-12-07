@@ -156,3 +156,24 @@ document.addEventListener("DOMContentLoaded", function() {
       }
   });
 });
+
+
+
+// randommeal[0].innerHTML = `
+//         <h2>${result.strMeal}</h2>
+//         <img id="meal-img" src="${result.strMealThumb}" alt="${result.strMeal}">`;
+
+//         meals.forEach((meal) => {
+//           const mealCard = `
+//        <div class="meal-card">
+//          <img src="${meal.strMealThumb}" alt="${meal.strMeal}">
+//          <h3>${meal.strMeal}</h3>
+//        </div>
+//        `;
+//           mealsList.innerHTML += mealCard;
+//       });
+//     }
+
+
+//modal logic
+
