@@ -15,21 +15,21 @@
 </head>
 
 <body>
-    <div class="mobile-container">
+    <div class="mobile-container" id="app-container">
         <h1 class="h1" id="h1">~Pocket Kitchen~</h1>
-        <h3 class="h3" id="h3">Pocket Kitchen not only lets you create delicious food but also helps keep those recipes
-            in your pocket for future use.</h3>
+        <h3 class="h3" id="h3"><mark>Pocket Kitchen not only lets you create delicious food but also helps keep those recipes
+            in your pocket for future use.</mark></h3>
         <header>
             <input type="text" id="search-term" placeholder="Search For Any Meal..." />
             <button id="search" style="margin-top: -10px"><i class="fas fa-search"></i></button>
         </header>
-        <h3 id="h3-1">Today's Random Recipe</h3>
+        <h3 id="h3-1"><mark>Today's Random Recipe</mark></h3>
         <div class="recipe-of-the-day-container" onclick="displayRecipeModal()"> 
             <h3 class="h3" style="color: black">Recipe of the Day</h3>
             <div id="recipe-of-the-day"></div>
         </div>
         <button id="get-more-btn">Get Another Random Recipe</button>
-        <h3 id="h3-1">Your Searched Dishes</h3>
+        <h3 id="h3-1"><mark>Your Searched Dishes</mark></h3>
         <div id="meals" class="grid"></div>
         <div class="meals" id="meals"></div>
         <button id="scroll-top-btn">Scroll to Top</button>

@@ -1,13 +1,64 @@
 body.dark-mode {
-    background-color: #1a1a1a;
+    background-color: #000000;
     color: #f5f5f5;
 }
 
-.mobile-container .dark-mode {
-    background-color: #1a1a1a;
+.mobile-container.dark-mode {
+    background-color: #000000;
     color: #f5f5f5;
 }
 
+.dark-mode header {
+    color: #f5f5f5;
+}
+
+.dark-mode input[type="text"],
+.dark-mode button {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.dark-mode .recipe-of-the-day-container {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.dark-mode #meals {
+    color: #f5f5f5;
+}
+
+.dark-mode .return-to-home-btn {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.dark-mode h1 {
+    color: #f5f5f5;
+}
+
+.dark-mode #h3-1 {
+    color: #f5f5f5;
+}
+
+.dark-mode .about-section p {
+    color: #f5f5f5;
+}
+
+.dark-mode #scroll-top-btn {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+#dark-mode-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+mark {
+    background-color: rgb(200, 255, 0);
+}
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap");
 
@@ -67,7 +118,12 @@ header button {
 
 .h1 {
     text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
     color: rgb(0, 0, 0);
+    height: 6em;
+    font-size: 2.5em;
 }
 
 .h3 {
@@ -120,7 +176,7 @@ button {
     transition: background-color 0.3s ease;
     color: white;
     padding: 8px 12px;
-    margin-top: 20px
+    margin-top: 20px;
 }
 
 button:hover {

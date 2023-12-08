@@ -63,13 +63,16 @@ function getIngredients(result) {
 
 getData();
 
-//Dark Mode logic-styles and layout will be changed in Milestone 3
+//Dark Mode logic
 const darkModeBtn = document.getElementById("dark-mode-btn");
+const appContainer = document.getElementById("app-container");
+
 darkModeBtn.addEventListener("click", () => {
-  document.body.classList.toggle("dark-mode"); //dark mode button self explanatory
+  document.body.classList.toggle("dark-mode");
+  appContainer.classList.toggle("dark-mode");
 });
 
-//scroll to top logic-styles and layout will be changed in Milestone 3
+//scroll to top logic
 document.getElementById("scroll-top-btn").addEventListener("click", () => {
   window.scrollTo({
     top: 0,
@@ -77,14 +80,14 @@ document.getElementById("scroll-top-btn").addEventListener("click", () => {
   });
 });
 
-//more button logic-styles and layout will be changed in Milestone 3
+//more button logic
 const morebtn = document.getElementById("get-more-btn");
 morebtn.addEventListener("click", () => {
   //this button will get a new random dish
   getData();
 });
 
-//share on whatsapp button-styles and layout will be changed in Milestone 3
+//share on whatsapp button
 
 const whatsappButton = document.getElementsByClassName("return-to-home-btn")[0];
 
@@ -101,7 +104,7 @@ function shareOnWhatsApp() {
   );
 }
 
-//search logic by category-styles and layout will be changed in Milestone 3
+//search logic by category
 function getCategoryData(key) {
   let categoryapi = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${key}`;
 
@@ -118,10 +121,10 @@ function getCategoryData(key) {
 }
 
 function displayMeals(meals) {
- const mealsList = document.getElementById("meals");
- mealsList.innerHTML = "";
+  const mealsList = document.getElementById("meals");
+  mealsList.innerHTML = "";
 
- meals.forEach((meal) => {
+  meals.forEach((meal) => {
     const mealCard = document.createElement("div");
     mealCard.classList.add("meal-card");
 
@@ -140,11 +143,11 @@ function displayMeals(meals) {
     mealCard.addEventListener("click", function () {
       getMealDetails(meal.strMeal);
     });
- });
+  });
 }
 
 function getMealDetails(mealName) {
-  let detailsApi = `https://www.themealdb.com/api/json/v1/1/search.php?s=${mealName}`; //the saved name in line 133 is passed here and the details of that dish is fetched.
+  let detailsApi = `https://www.themealdb.com/api/json/v1/1/search.php?s=${mealName}`; //the saved name in line 136 is passed here and the details of that dish is fetched.
 
   fetch(detailsApi)
     .then((response) => response.json())
@@ -163,7 +166,7 @@ function getMealDetails(mealName) {
 
       Swal.fire({
         title: mealDetails.strMeal,
-        //paste the commented text in line 198 here and image will be shown for the search food when you open the popup
+        //paste the commented text in line 201 here and image will be shown for the search food when you open the popup
         html: `<p><h3>Ingredients:</h3>${ingredients.join(
           "<br>"
         )}</p><p><h3>Instructions:</h3>${mealDetails.strInstructions}</p>`,
