@@ -1,3 +1,6 @@
+
+const MAX_INGREDIENTS = 20;  //saving this const value so that it tells why we need 20 iterations
+
 //logic for fetching api data for random food and displaying on screen and console and modal of the random food
 
 function getData() {
@@ -25,7 +28,9 @@ function getData() {
 				instructions: result.strInstructions,
 			};
 
-			randommeal[0].onclick = displayRecipeModal;
+			// randommeal[0].onclick = displayRecipeModal; this also works but the next one tells us exactly what is happening
+			randommeal[0].addEventListener('click', displayRecipeModal);
+
 		});
 }
 
@@ -52,7 +57,7 @@ function displayRecipeModal() {
 
 function getIngredients(result) {
 	const ingredients = [];
-	for (let i = 1; i <= 20; i++) {
+	for (let i = 1; i <= MAX_INGREDIENTS; i++) {
 		//as there are 20 measure and ingredients it will loop through 0<i<20 to gather all the ingredients and its measure
 		const ingredient = result[`strIngredient${i}`];
 		const measure = result[`strMeasure${i}`];
@@ -157,7 +162,7 @@ function getMealDetails(mealName) {
 			const mealDetails = result.meals[0];
 
 			const ingredients = [];
-			for (let i = 1; i <= 20; i++) {
+			for (let i = 1; i <= MAX_INGREDIENTS; i++) {
 				const ingredient = mealDetails[`strIngredient${i}`];
 				const measure = mealDetails[`strMeasure${i}`];
 				if (ingredient && measure) {
