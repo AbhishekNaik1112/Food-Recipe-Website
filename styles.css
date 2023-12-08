@@ -3,7 +3,7 @@ body.dark-mode {
     color: #f5f5f5;
 }
 
-.mobile-container .dark-mode{
+.mobile-container .dark-mode {
     background-color: #1a1a1a;
     color: #f5f5f5;
 }
@@ -13,7 +13,7 @@ body.dark-mode {
 
 * {
     box-sizing: border-box;
-    background-color: white;
+    /* background-color: white; */
 }
 
 html {
@@ -120,7 +120,7 @@ button {
     transition: background-color 0.3s ease;
     color: white;
     padding: 8px 12px;
-    margin-top: 20px 
+    margin-top: 20px
 }
 
 button:hover {
@@ -128,34 +128,22 @@ button:hover {
 }
 
 .about-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-bottom: 2rem;
     padding: 20px;
 }
 
 .about-section h2 {
     color: red;
+    margin-bottom: 1rem;
 }
 
 .about-section p {
     color: #000000;
     line-height: 1.6;
-}
-
-footer button {
-    display: block;
-    margin: auto;
-    background-color: #c67ee0;
-    border: none;
-    color: white;
-    padding: 1rem;
-    border-radius: 8px;
-    font-size: 1rem;
-    cursor: pointer;
-    margin-bottom: 2rem;
-}
-
-footer button:hover {
-    background-color: #e07ed0;
+    margin-bottom: 1rem;
 }
 
 #about-btn {
@@ -166,7 +154,7 @@ footer button:hover {
     border-radius: 8px;
     font-size: 1rem;
     cursor: pointer;
-    right: 20px;
+    margin-top: 1rem;
 }
 
 #about-btn:hover {
@@ -205,4 +193,11 @@ select {
 
 #scroll-top-btn:hover {
     background-color: #ff0000;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: 10px;
 }

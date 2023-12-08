@@ -118,10 +118,10 @@ function getCategoryData(key) {
 }
 
 function displayMeals(meals) {
-  const mealsList = document.getElementById("meals");
-  mealsList.innerHTML = "";
+ const mealsList = document.getElementById("meals");
+ mealsList.innerHTML = "";
 
-  meals.forEach((meal) => {
+ meals.forEach((meal) => {
     const mealCard = document.createElement("div");
     mealCard.classList.add("meal-card");
 
@@ -140,7 +140,7 @@ function displayMeals(meals) {
     mealCard.addEventListener("click", function () {
       getMealDetails(meal.strMeal);
     });
-  });
+ });
 }
 
 function getMealDetails(mealName) {
