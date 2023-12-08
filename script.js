@@ -14,9 +14,9 @@ function getData() {
           console.log(result);
 
           randommeal[0].innerHTML = `
-              <h2>${result.strMeal}</h2>
-              <img id="meal-img" src="${result.strMealThumb}" alt="${result.strMeal}">
-          `;
+            <h2>${result.strMeal}</h2>
+            <img id="meal-img" src="${result.strMealThumb}" alt="${result.strMeal}">
+        `;
 
           randommeal[0].recipeDetails = {
               meal: result.strMeal,
@@ -34,12 +34,12 @@ function displayRecipeModal() {
   )[0].recipeDetails;
 
   const modalContent = `
-      <h2>${recipeDetails.meal}</h2>
-      <h3>Ingredients:</h3><br>
-      ${recipeDetails.ingredients}
-      <h3>Instructions:</h3>
-      <p>${recipeDetails.instructions}</p>
-  `;
+    <h2>${recipeDetails.meal}</h2>
+    <h3>Ingredients:</h3><br>
+    ${recipeDetails.ingredients}
+    <h3>Instructions:</h3>
+    <p>${recipeDetails.instructions}</p>
+`;
 
   Swal.fire({
       html: modalContent,
@@ -131,13 +131,12 @@ morebtn.addEventListener("click", () => {
 
 //share on whatsapp button-styles and layout will be changed in Milestone 3
 
-const whatsapp = document.getElementsByClassName("return-to-home-btn");
+const whatsappButton = document.getElementsByClassName("return-to-home-btn")[0];
 
-for (let i = 0; i < whatsapp.length; i++) {
-  whatsapp[i].addEventListener("click", () => {
-      shareOnWhatsApp();
-  });
-}
+whatsappButton.addEventListener("click", () => {
+  shareOnWhatsApp();
+});
+
 
 function shareOnWhatsApp() {
   const textToShare =
@@ -210,8 +209,8 @@ function getMealDetails(mealName) {
           Swal.fire({
               title: mealDetails.strMeal,
               html: `<p><h3>Ingredients:</h3>${ingredients.join(
-        "<br>"
-      )}</p><p><h3>Instructions:</h3>${mealDetails.strInstructions}</p>`,
+      "<br>"
+    )}</p><p><h3>Instructions:</h3>${mealDetails.strInstructions}</p>`,
               confirmButtonText: "Close",
           });
       })
