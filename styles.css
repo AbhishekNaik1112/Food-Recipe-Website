@@ -149,7 +149,7 @@ header button {
     color: rgb(255, 255, 255);
     font-size: 2.5em;
     background-image: url(Header.png);
-    height: 4em;
+    height: 7em;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 1px;
@@ -273,4 +273,10 @@ select {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
     grid-gap: 10px;
+}
+
+
+.logoimage {
+    position: absolute;
+    top: 30px;
 }
