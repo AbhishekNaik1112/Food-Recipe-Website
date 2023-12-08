@@ -1,3 +1,4 @@
+/* dark mode css */
 body.dark-mode {
     background-color: #000000;
     color: #f5f5f5;
@@ -50,6 +51,7 @@ body.dark-mode {
     border: none;
 }
 
+/* button css */
 #dark-mode-btn {
     position: fixed;
     bottom: 20px;
@@ -57,6 +59,7 @@ body.dark-mode {
     z-index: 1000;
     border: none;
 }
+
 #scroll-top-btn {
     position: fixed;
     bottom: 20px;
@@ -81,6 +84,7 @@ body.dark-mode {
     border: none;
 }
 
+/* highlights */
 mark {
     background-color: rgb(200, 255, 0);
 }
@@ -110,6 +114,7 @@ img {
     max-width: 100%;
 }
 
+/* global container */
 .mobile-container {
     background-color: #ffffff;
     box-shadow: 0 0 10px 2px #3333331a;
@@ -140,7 +145,7 @@ header button {
     font-size: 1.5rem;
     margin-left: 10px;
 }
-
+/* main name css */
 .h1 {
     text-align: center;
     justify-content: center;
@@ -164,21 +169,7 @@ h6 {
     text-align: center;
     color: rgb(255, 0, 0);
 }
-
-.return-to-home-btn {
-    display: block;
-    margin: auto;
-    background-color: #000000;
-    border-radius: 8px;
-    transition: background-color 0.3s ease;
-    color: white;
-    padding: 8px 12px;
-}
-
-.return-to-home-btn:hover {
-    background-color: #ff0000;
-}
-
+/* random dish container */
 .recipe-of-the-day-container {
     text-align: center;
     padding: 1rem;
@@ -195,7 +186,7 @@ h6 {
     text-align: center;
     color: #2d2d2d;
 }
-
+/* buttons css */
 button {
     text-align: center;
     display: block;
@@ -212,6 +203,7 @@ button:hover {
     background-color: rgb(255, 0, 0);
 }
 
+/* about section css */
 .about-section {
     display: flex;
     flex-direction: column;
@@ -230,10 +222,12 @@ button:hover {
     line-height: 1.6;
     margin-bottom: 1rem;
 }
+
 #about-btn:hover {
     background-color: red;
 }
 
+/* input field css */
 input[type="text"],
 input[type="number"],
 input[type="email"],
@@ -253,6 +247,7 @@ select {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
+/* scroll button css */
 #scroll-top-btn {
     display: block;
     margin: auto;
@@ -268,6 +263,7 @@ select {
     background-color: #ff0000;
 }
 
+/* grid setup for feted dishes */
 .grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -275,7 +271,7 @@ select {
     grid-gap: 10px;
 }
 
-
+/* logo image on header image */
 .logoimage {
     position: absolute;
     top: 30px;
