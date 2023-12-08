@@ -3,3 +3,206 @@ body.dark-mode {
     color: #f5f5f5;
 }
 
+.mobile-container .dark-mode{
+    background-color: #1a1a1a;
+    color: #f5f5f5;
+}
+
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap");
+
+* {
+    box-sizing: border-box;
+    background-color: white;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    min-height: 100vh;
+}
+
+img {
+    max-width: 100%;
+}
+
+.mobile-container {
+    background-color: #ffffff;
+    box-shadow: 0 0 10px 2px #3333331a;
+    border-radius: 3px;
+    overflow: hidden;
+    width: 100%;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+header input {
+    background-color: #ffffff;
+    border: none;
+    border-radius: 3px;
+    font-family: inherit;
+    padding: 0.5rem 1rem;
+}
+
+header button {
+    background-color: transparent;
+    border: none;
+    color: rgb(138, 129, 141);
+    font-size: 1.5rem;
+    margin-left: 10px;
+}
+
+.h1 {
+    text-align: center;
+    color: rgb(0, 0, 0);
+}
+
+.h3 {
+    text-align: center;
+    color: rgb(255, 0, 0);
+}
+
+h6 {
+    text-align: center;
+    color: rgb(255, 0, 0);
+}
+
+.return-to-home-btn {
+    display: block;
+    margin: auto;
+    background-color: #000000;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    color: white;
+    padding: 8px 12px;
+}
+
+.return-to-home-btn:hover {
+    background-color: #ff0000;
+}
+
+.recipe-of-the-day-container {
+    text-align: center;
+    padding: 1rem;
+    background-color: #ffffff;
+    margin: 1rem;
+    border-radius: 8px;
+}
+
+.recipe-of-the-day-container .meal {
+    margin: auto;
+}
+
+#h3-1 {
+    text-align: center;
+    color: #2d2d2d;
+}
+
+button {
+    text-align: center;
+    display: block;
+    margin: auto;
+    background-color: #000000;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    color: white;
+    padding: 8px 12px;
+    margin-top: 20px 
+}
+
+button:hover {
+    background-color: rgb(255, 0, 0);
+}
+
+.about-section {
+    margin-bottom: 2rem;
+    padding: 20px;
+}
+
+.about-section h2 {
+    color: red;
+}
+
+.about-section p {
+    color: #000000;
+    line-height: 1.6;
+}
+
+footer button {
+    display: block;
+    margin: auto;
+    background-color: #c67ee0;
+    border: none;
+    color: white;
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-bottom: 2rem;
+}
+
+footer button:hover {
+    background-color: #e07ed0;
+}
+
+#about-btn {
+    background-color: #000000;
+    border: none;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    right: 20px;
+}
+
+#about-btn:hover {
+    background-color: red;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+input[type="url"],
+textarea,
+select {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 20px 0;
+    border: 2px solid #e07ed0;
+    border-radius: 8px;
+    font-family: "Poppins", sans-serif;
+    color: #333;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+#scroll-top-btn {
+    display: block;
+    margin: auto;
+    background-color: #000000;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    color: white;
+    padding: 8px 12px;
+    margin-top: 20px;
+}
+
+#scroll-top-btn:hover {
+    background-color: #ff0000;
+}
