@@ -47,6 +47,7 @@ body.dark-mode {
 .dark-mode #scroll-top-btn {
     background-color: #ffffff;
     color: #000000;
+    border: none;
 }
 
 #dark-mode-btn {
@@ -54,6 +55,30 @@ body.dark-mode {
     bottom: 20px;
     right: 20px;
     z-index: 1000;
+    border: none;
+}
+#scroll-top-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 60px;
+    z-index: 1000;
+    border: none;
+}
+
+.share {
+    position: fixed;
+    bottom: 60px;
+    right: 20px;
+    z-index: 1000;
+    border: none;
+}
+
+.about {
+    position: fixed;
+    bottom: 60px;
+    right: 60px;
+    z-index: 1000;
+    border: none;
 }
 
 mark {
@@ -90,7 +115,7 @@ img {
     box-shadow: 0 0 10px 2px #3333331a;
     border-radius: 3px;
     overflow: hidden;
-    width: 100%;
+    width: 80%;
 }
 
 header {
@@ -122,7 +147,6 @@ header button {
     align-items: center;
     display: flex;
     color: rgb(0, 0, 0);
-    height: 6em;
     font-size: 2.5em;
 }
 
@@ -201,18 +225,6 @@ button:hover {
     line-height: 1.6;
     margin-bottom: 1rem;
 }
-
-#about-btn {
-    background-color: #000000;
-    border: none;
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
-    font-size: 1rem;
-    cursor: pointer;
-    margin-top: 1rem;
-}
-
 #about-btn:hover {
     background-color: red;
 }

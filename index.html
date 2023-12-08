@@ -1,46 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>~Pocket Kitchen~</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
-    <link rel="stylesheet" href="styles.css" />
-    <script src="script.js" defer></script>
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-default@5/default.css" />
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
-    <link rel="icon" href="logo.png" type="image/x-icon" />
-</head>
-
-<body>
-    <div class="mobile-container" id="app-container">
-        <h1 class="h1" id="h1">~Pocket Kitchen~</h1>
-        <h3 class="h3" id="h3"><mark>Pocket Kitchen not only lets you create delicious food but also helps keep those recipes
-            in your pocket for future use.</mark></h3>
-        <header>
-            <input type="text" id="search-term" placeholder="Search For Any Meal..." />
-            <button id="search" style="margin-top: -10px"><i class="fas fa-search"></i></button>
-        </header>
-        <h3 id="h3-1"><mark>Today's Random Recipe</mark></h3>
-        <div class="recipe-of-the-day-container" onclick="displayRecipeModal()"> 
-            <h3 class="h3" style="color: black">Recipe of the Day</h3>
-            <div id="recipe-of-the-day"></div>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>~Pocket Kitchen~</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
+        <link rel="stylesheet" href="styles.css" />
+        <script src="script.js" defer></script>
+        <link rel="icon" type="image/x-icon" href="favicon.ico">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-default@5/default.css" />
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+        <link rel="icon" href="logo.png" type="image/x-icon" />
+    </head>
+    <body>
+        <div class="mobile-container" id="app-container">
+            <div class="headimage"></div>
+            <h1 class="h1" id="h1">~Pocket Kitchen~</h1>
+            <h3 class="h3" id="h3">
+                <mark>Pocket Kitchen not only lets you create delicious food but also helps keep those recipes in your pocket for future use.</mark>
+            </h3>
+            <header>
+                <input type="text" id="search-term" placeholder="Search For Any Meal..." />
+                <button id="search" style="margin-top: -10px">
+                    <i class="fas fa-search"></i>
+                </button>
+            </header>
+            <h3 id="h3-1">
+                <mark>Today's Random Recipe</mark>
+            </h3>
+            <div class="recipe-of-the-day-container" onclick="displayRecipeModal()">
+                <h3 class="h3" style="color: black">Recipe of the Day</h3>
+                <div id="recipe-of-the-day"></div>
+            </div>
+            <button id="get-more-btn">Get Another Random Recipe</button>
+            <h3 id="h3-1">
+                <mark>Your Searched Dishes</mark>
+            </h3>
+            <div id="meals" class="grid"></div>
+            <div class="meals" id="meals"></div>
+            <button id="scroll-top-btn">
+                <i class="fas fa-chevron-up"></i>
+            </button>
+            <br>
+            <button class="share" onclick="">
+                <i class="fab fa-whatsapp"></i>
+            </button>
+            <button onclick="window.location.href='about.html'" class="about" style="margin-top: 25px">
+                <i class="far fa-address-card"></i>
+            </button>
+            <h6>Made by Abhishek</h6>
         </div>
-        <button id="get-more-btn">Get Another Random Recipe</button>
-        <h3 id="h3-1"><mark>Your Searched Dishes</mark></h3>
-        <div id="meals" class="grid"></div>
-        <div class="meals" id="meals"></div>
-        <button id="scroll-top-btn">Scroll to Top</button>
-        <br>
-        <button class="return-to-home-btn" onclick="">Share on WhatsApp</button>
-        <button onclick="window.location.href='about.html'" class="return-to-home-btn" style="margin-top: 25px">About
-            ~Pocket Kitchen~</button>
-        <h6>Made by Abhishek</h6>
-    </div>
-    <button id="dark-mode-btn"><i class="fa fa-lightbulb"></i></button>
-    <script src="script.js"></script>
-</body>
-
+        <button id="dark-mode-btn">
+            <i class="fa fa-lightbulb"></i>
+        </button>
+        <script src="script.js"></script>
+    </body>
 </html>
