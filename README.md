@@ -1,4 +1,11 @@
 # Food Recipe Website
+<h3>A Minimalist recipe website with the classic monochrome color scheme</h3>
+<br>
+<br>
+<h4>Used HTML CSS and Vanilla Javascript paired with TheMealDB API to gather the Data about different dishes.</h4>
+<br>
+<br>
+<h4>If you want to add,improve or edit features feel free to fork and clone it.</h4>
 <br>
 <br>
 Loom Video Link-https://www.loom.com/share/16d1c2cfc52b471aa02ed779522f2cdd?sid=5636c6b6-bf0c-4a1d-ac77-7136000a2ed6
