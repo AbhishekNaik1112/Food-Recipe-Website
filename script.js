@@ -30,9 +30,11 @@ function getData() {
 }
 
 function displayRecipeModal() {
-	const recipeDetails = document.getElementsByClassName(
-		"recipe-of-the-day-container" //displaying a popup modal which will contain the measure ingredients and instructions.
-	)[0].recipeDetails;
+	// const recipeDetails = document.getElementsByClassName(
+	// 	"recipe-of-the-day-container" )[0].recipeDetails;
+	const recipeDetails = document.querySelector(".recipe-of-the-day-container").recipeDetails;
+		//displaying a popup modal which will contain the measure ingredients and instructions.
+	// both of them work but using query selector makes sure that we are using the element that we need
 
 	const modalContent = `
     <h2>${recipeDetails.meal}</h2>
@@ -147,7 +149,7 @@ function displayMeals(meals) {
 }
 
 function getMealDetails(mealName) {
-	let detailsApi = `https://www.themealdb.com/api/json/v1/1/search.php?s=${mealName}`; //the saved name in line 136 is passed here and the details of that dish is fetched.
+	let detailsApi = `https://www.themealdb.com/api/json/v1/1/search.php?s=${mealName}`; //the saved name in line 138 is passed here and the details of that dish is fetched.
 
 	fetch(detailsApi)
 		.then((response) => response.json())
@@ -166,7 +168,7 @@ function getMealDetails(mealName) {
 
 			Swal.fire({
 				title: mealDetails.strMeal,
-				//paste the commented text in line 201 here and image will be shown for the search food when you open the popup
+				//paste the commented text in line 203 here and image will be shown for the search food when you open the popup
 				html: `<p><h3>Ingredients:</h3>${ingredients.join(
           "<br>"
         )}</p><p><h3>Instructions:</h3>${mealDetails.strInstructions}</p>`,
