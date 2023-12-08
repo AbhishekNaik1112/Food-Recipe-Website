@@ -171,8 +171,8 @@ textarea,
 select {
     width: 100%;
     padding: 10px;
-    margin: 5px 0 20px 0;
-    border: 2px solid #e07ed0;
+    margin: -7px 0 20px 0;
+    border: 2px solid red;
     border-radius: 8px;
     font-family: "Poppins", sans-serif;
     color: #333;
