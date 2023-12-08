@@ -2,59 +2,59 @@
 
 function getData() {
   const randommeal = document.getElementsByClassName(
-    "recipe-of-the-day-container"
+      "recipe-of-the-day-container"
   );
 
   const apiUrl = `https://www.themealdb.com/api/json/v1/1/random.php`;
 
   fetch(apiUrl)
-    .then((response) => response.json())
-    .then((data) => {
-      const result = data.meals[0];
-      console.log(result);
+      .then((response) => response.json())
+      .then((data) => {
+          const result = data.meals[0];
+          console.log(result);
 
-      randommeal[0].innerHTML = `
-                <h2>${result.strMeal}</h2>
-                <img id="meal-img" src="${result.strMealThumb}" alt="${result.strMeal}">
-            `;
+          randommeal[0].innerHTML = `
+              <h2>${result.strMeal}</h2>
+              <img id="meal-img" src="${result.strMealThumb}" alt="${result.strMeal}">
+          `;
 
-      randommeal[0].recipeDetails = {
-        meal: result.strMeal,
-        ingredients: getIngredients(result),
-        instructions: result.strInstructions,
-      };
+          randommeal[0].recipeDetails = {
+              meal: result.strMeal,
+              ingredients: getIngredients(result),
+              instructions: result.strInstructions,
+          };
 
-      randommeal[0].onclick = displayRecipeModal;
-    });
+          randommeal[0].onclick = displayRecipeModal;
+      });
 }
 
 function displayRecipeModal() {
   const recipeDetails = document.getElementsByClassName(
-    "recipe-of-the-day-container"
+      "recipe-of-the-day-container"
   )[0].recipeDetails;
 
   const modalContent = `
-        <h2>${recipeDetails.meal}</h2>
-        <h3>Ingredients:</h3>
-        <ul>${recipeDetails.ingredients}</ul>
-        <h3>Instructions:</h3>
-        <p>${recipeDetails.instructions}</p>
-    `;
+      <h2>${recipeDetails.meal}</h2>
+      <h3>Ingredients:</h3><br>
+      ${recipeDetails.ingredients}
+      <h3>Instructions:</h3>
+      <p>${recipeDetails.instructions}</p>
+  `;
 
   Swal.fire({
-    html: modalContent,
-    confirmButtonText: "Close",
+      html: modalContent,
+      confirmButtonText: "Close",
   });
 }
 
 function getIngredients(result) {
   const ingredients = [];
   for (let i = 1; i <= 20; i++) {
-    const ingredient = result[`strIngredient${i}`];
-    const measure = result[`strMeasure${i}`];
-    if (ingredient && measure) {
-      ingredients.push(`<li>${measure} ${ingredient}</li>`);
-    }
+      const ingredient = result[`strIngredient${i}`];
+      const measure = result[`strMeasure${i}`];
+      if (ingredient && measure) {
+          ingredients.push(`${measure} ${ingredient}<br>`);
+      }
   }
   return ingredients.join("");
 }
@@ -70,8 +70,8 @@ darkModeBtn.addEventListener("click", () => {
 //scroll to top logic-styles and layout will be changed in Milestone 3
 document.getElementById("scroll-top-btn").addEventListener("click", () => {
   window.scrollTo({
-    top: 0,
-    behavior: "smooth",
+      top: 0,
+      behavior: "smooth",
   });
 });
 
@@ -80,8 +80,8 @@ const timerContainer = document.getElementById("active-timers");
 document.getElementById("timer-start-btn").addEventListener("click", () => {
   let minutes = parseInt(document.getElementById("timer-input").value);
   if (isNaN(minutes) || minutes <= 0) {
-    alert("Please enter a valid number of minutes.");
-    return;
+      alert("Please enter a valid number of minutes.");
+      return;
   }
 
   createTimer(minutes);
@@ -96,8 +96,8 @@ function createTimer(minutes) {
 
   removeBtn.innerText = "Remove";
   removeBtn.onclick = () => {
-    clearInterval(timerItem.intervalId);
-    timerItem.remove();
+      clearInterval(timerItem.intervalId);
+      timerItem.remove();
   };
 
   endTimeSpan.innerText = `Ends at ${endTime.toLocaleTimeString()} `;
@@ -109,17 +109,17 @@ function createTimer(minutes) {
   timerContainer.appendChild(timerItem);
 
   timerItem.intervalId = setInterval(() => {
-    const now = new Date();
-    const timeLeft = endTime.getTime() - now.getTime();
+      const now = new Date();
+      const timeLeft = endTime.getTime() - now.getTime();
 
-    if (timeLeft <= 0) {
-      clearInterval(timerItem.intervalId);
-      countdownSpan.innerText = `Time's up!`;
-    } else {
-      const minutesLeft = Math.floor(timeLeft / 60000);
-      const secondsLeft = Math.floor((timeLeft % 60000) / 1000);
-      countdownSpan.innerText = `${minutesLeft}m ${secondsLeft}s remaining`;
-    }
+      if (timeLeft <= 0) {
+          clearInterval(timerItem.intervalId);
+          countdownSpan.innerText = `Time's up!`;
+      } else {
+          const minutesLeft = Math.floor(timeLeft / 60000);
+          const secondsLeft = Math.floor((timeLeft % 60000) / 1000);
+          countdownSpan.innerText = `${minutesLeft}m ${secondsLeft}s remaining`;
+      }
   }, 1000);
 }
 
@@ -135,16 +135,16 @@ const whatsapp = document.getElementsByClassName("return-to-home-btn");
 
 for (let i = 0; i < whatsapp.length; i++) {
   whatsapp[i].addEventListener("click", () => {
-    shareOnWhatsApp();
+      shareOnWhatsApp();
   });
 }
 
 function shareOnWhatsApp() {
   const textToShare =
-    "This site is a great place to look for recipes.Give it a try." +
-    `https://abhisheknaik1112.github.io/Food-Recipe-Website/`;
+      "This site is a great place to look for recipes.Give it a try." +
+      `https://abhisheknaik1112.github.io/Food-Recipe-Website/`;
   window.open(
-    "https://api.whatsapp.com/send?text=" + encodeURIComponent(textToShare)
+      "https://api.whatsapp.com/send?text=" + encodeURIComponent(textToShare)
   );
 }
 
@@ -153,15 +153,15 @@ function getCategoryData(key) {
   let categoryapi = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${key}`;
 
   fetch(categoryapi)
-    .then((response) => response.json())
-    .then((result) => {
-      const meals = result.meals;
-      console.log(result);
-      displayMeals(meals);
-    })
-    .catch((err) => {
-      console.log("ll", err.message);
-    });
+      .then((response) => response.json())
+      .then((result) => {
+          const meals = result.meals;
+          console.log(result);
+          displayMeals(meals);
+      })
+      .catch((err) => {
+          console.log("Error fetching meal details:", err.message);
+      });
 }
 
 function displayMeals(meals) {
@@ -169,25 +169,24 @@ function displayMeals(meals) {
   mealsList.innerHTML = "";
 
   meals.forEach((meal) => {
-    const mealCard = document.createElement("div");
-    mealCard.classList.add("meal-card");
+      const mealCard = document.createElement("div");
+      mealCard.classList.add("meal-card");
 
-    const mealImage = document.createElement("img");
-    mealImage.src = meal.strMealThumb;
-    mealImage.alt = meal.strMeal;
+      const mealImage = document.createElement("img");
+      mealImage.src = meal.strMealThumb;
+      mealImage.alt = meal.strMeal;
 
-    const mealName = document.createElement("h3");
-    mealName.textContent = meal.strMeal;
+      const mealName = document.createElement("h3");
+      mealName.textContent = meal.strMeal;
 
-    mealCard.appendChild(mealImage);
-    mealCard.appendChild(mealName);
+      mealCard.appendChild(mealImage);
+      mealCard.appendChild(mealName);
 
-    mealsList.appendChild(mealCard);
+      mealsList.appendChild(mealCard);
 
-
-    mealCard.addEventListener("click", function () {
-      getMealDetails(meal.strMeal);
-    });
+      mealCard.addEventListener("click", function() {
+          getMealDetails(meal.strMeal);
+      });
   });
 }
 
@@ -195,49 +194,50 @@ function getMealDetails(mealName) {
   let detailsApi = `https://www.themealdb.com/api/json/v1/1/search.php?s=${mealName}`;
 
   fetch(detailsApi)
-    .then((response) => response.json())
-    .then((result) => {
-      const mealDetails = result.meals[0];
+      .then((response) => response.json())
+      .then((result) => {
+          const mealDetails = result.meals[0];
 
+          const ingredients = [];
+          for (let i = 1; i <= 20; i++) {
+              const ingredient = mealDetails[`strIngredient${i}`];
+              const measure = mealDetails[`strMeasure${i}`];
+              if (ingredient && measure) {
+                  ingredients.push(`${measure} ${ingredient}`);
+              }
+          }
 
-      const ingredients = [];
-      for (let i = 1; i <= 20; i++) {
-        const ingredient = mealDetails[`strIngredient${i}`];
-        const measure = mealDetails[`strMeasure${i}`];
-        if (ingredient && measure) {
-          ingredients.push(`${measure} ${ingredient}`);
-        }
-      }
-
-      Swal.fire({
-        title: mealDetails.strMeal,
-        html: `<p>${ingredients.join("<br>")}</p><p>${mealDetails.strInstructions}</p>`,
-        imageUrl: mealDetails.strMealThumb,
-        imageAlt: mealDetails.strMeal,
-        confirmButtonText: "Close",
+          Swal.fire({
+              title: mealDetails.strMeal,
+              html: `<p><h3>Ingredients:</h3>${ingredients.join(
+        "<br>"
+      )}</p><p><h3>Instructions:</h3>${mealDetails.strInstructions}</p>`,
+              confirmButtonText: "Close",
+          });
+      })
+      .catch((err) => {
+          console.log("Error fetching meal details:", err.message);
       });
-    })
-    .catch((err) => {
-      console.log("Error fetching meal details:", err.message);
-    });
 }
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function() {
   const searchbtn = document.getElementById("search");
   const searchvalue = document.getElementById("search-term");
 
-  searchbtn.addEventListener("click", function () {
-    var search = searchvalue.value;
-    console.log(search);
-    getCategoryData(search);
-  });
-
-  searchvalue.addEventListener("keypress", function (event) {
-    if (event.key === "Enter") {
+  searchbtn.addEventListener("click", function() {
       var search = searchvalue.value;
       console.log(search);
       getCategoryData(search);
-    }
+  });
+
+  searchvalue.addEventListener("keypress", function(event) {
+      if (event.key === "Enter") {
+          var search = searchvalue.value;
+          console.log(search);
+          getCategoryData(search);
+      }
   });
 });
 
+// imageUrl: mealDetails.strMealThumb,
+//imageAlt: mealDetails.strMeal,
