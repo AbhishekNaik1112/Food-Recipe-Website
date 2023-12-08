@@ -169,14 +169,57 @@ function displayMeals(meals) {
   mealsList.innerHTML = "";
 
   meals.forEach((meal) => {
-    const mealCard = `
-   <div class="meal-card">
-     <img src="${meal.strMealThumb}" alt="${meal.strMeal}">
-     <h3>${meal.strMeal}</h3>
-   </div>
-   `;
-    mealsList.innerHTML += mealCard;
+    const mealCard = document.createElement("div");
+    mealCard.classList.add("meal-card");
+
+    const mealImage = document.createElement("img");
+    mealImage.src = meal.strMealThumb;
+    mealImage.alt = meal.strMeal;
+
+    const mealName = document.createElement("h3");
+    mealName.textContent = meal.strMeal;
+
+    mealCard.appendChild(mealImage);
+    mealCard.appendChild(mealName);
+
+    mealsList.appendChild(mealCard);
+
+
+    mealCard.addEventListener("click", function () {
+      getMealDetails(meal.strMeal);
+    });
   });
+}
+
+function getMealDetails(mealName) {
+  let detailsApi = `https://www.themealdb.com/api/json/v1/1/search.php?s=${mealName}`;
+
+  fetch(detailsApi)
+    .then((response) => response.json())
+    .then((result) => {
+      const mealDetails = result.meals[0];
+
+
+      const ingredients = [];
+      for (let i = 1; i <= 20; i++) {
+        const ingredient = mealDetails[`strIngredient${i}`];
+        const measure = mealDetails[`strMeasure${i}`];
+        if (ingredient && measure) {
+          ingredients.push(`${measure} ${ingredient}`);
+        }
+      }
+
+      Swal.fire({
+        title: mealDetails.strMeal,
+        html: `<p>${ingredients.join("<br>")}</p><p>${mealDetails.strInstructions}</p>`,
+        imageUrl: mealDetails.strMealThumb,
+        imageAlt: mealDetails.strMeal,
+        confirmButtonText: "Close",
+      });
+    })
+    .catch((err) => {
+      console.log("Error fetching meal details:", err.message);
+    });
 }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -197,3 +240,4 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
