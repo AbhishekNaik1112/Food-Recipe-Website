@@ -1,7 +1,4 @@
-const MAX_INGREDIENTS = 20; //saving this const value so that it tells why we need 20 iterations
-
 //logic for fetching api data for random food and displaying on screen and console and modal of the random food
-
 function getData() {
   const randommeal = document.getElementsByClassName(
     "recipe-of-the-day-container"
@@ -14,7 +11,7 @@ function getData() {
     .then((data) => {
       //fetching the random dish using the random api
       const result = data.meals[0];
-      console.log(result);
+      console.log("Random Meal Details:", result);
 
       randommeal[0].innerHTML = `
             <h2>${result.strMeal}</h2>
@@ -57,7 +54,7 @@ function displayRecipeModal() {
 
 function getIngredients(result) {
   const ingredients = [];
-  for (let i = 1; i <= MAX_INGREDIENTS; i++) {
+  for (let i = 1; i <= 20; i++) {
     //as there are 20 measure and ingredients it will loop through 0<i<20 to gather all the ingredients and its measure
     const ingredient = result[`strIngredient${i}`];
     const measure = result[`strMeasure${i}`];
@@ -71,8 +68,8 @@ function getIngredients(result) {
 getData();
 
 //Dark Mode logic
-const darkModeBtn = document.getElementById("dark-mode-btn");
-const appContainer = document.getElementById("app-container");
+window.darkModeBtn = document.getElementById("dark-mode-btn");
+window.appContainer = document.getElementById("app-container");
 
 darkModeBtn.addEventListener("click", () => {
   document.body.classList.toggle("dark-mode");
@@ -88,7 +85,7 @@ document.getElementById("scroll-top-btn").addEventListener("click", () => {
 });
 
 //more button logic
-const morebtn = document.getElementById("get-more-btn");
+window.morebtn = document.getElementById("get-more-btn");
 morebtn.addEventListener("click", () => {
   //this button will get a new random dish
   getData();
@@ -96,7 +93,7 @@ morebtn.addEventListener("click", () => {
 
 //share on whatsapp button
 
-const whatsappButton = document.getElementsByClassName("share")[0];
+window.whatsappButton = document.getElementsByClassName("share")[0];
 
 whatsappButton.addEventListener("click", () => {
   shareOnWhatsApp();
@@ -119,7 +116,7 @@ function getCategoryData(key) {
     .then((response) => response.json()) //fetching the dishes of the entered category
     .then((result) => {
       const meals = result.meals;
-      console.log(result);
+      console.log("Category Search Details:", result);
       displayMeals(meals);
     })
     .catch((err) => {
@@ -160,9 +157,9 @@ function getMealDetails(mealName) {
     .then((response) => response.json())
     .then((result) => {
       const mealDetails = result.meals[0];
-
+      console.log("Selected Meal Details:", mealDetails);
       const ingredients = [];
-      for (let i = 1; i <= MAX_INGREDIENTS; i++) {
+      for (let i = 1; i <= 20; i++) {
         const ingredient = mealDetails[`strIngredient${i}`];
         const measure = mealDetails[`strMeasure${i}`];
         if (ingredient && measure) {
@@ -191,14 +188,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
   searchbtn.addEventListener("click", function () {
     var search = searchvalue.value;
-    console.log(search);
     getCategoryData(search);
   });
 
   searchvalue.addEventListener("keypress", function (event) {
     if (event.key === "Enter") {
       var search = searchvalue.value;
-      console.log(search);
       getCategoryData(search);
     }
   });
