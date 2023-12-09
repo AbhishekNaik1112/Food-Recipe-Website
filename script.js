@@ -67,8 +67,8 @@ function getIngredients(result) {
 getData();
 
 //Dark Mode logic
-window.darkModeBtn = document.getElementById("dark-mode-btn");
-window.appContainer = document.getElementById("app-container");
+const darkModeBtn = document.getElementById("dark-mode-btn");
+const appContainer = document.getElementById("app-container");
 
 darkModeBtn.addEventListener("click", () => {
   document.body.classList.toggle("dark-mode");
@@ -84,7 +84,7 @@ document.getElementById("scroll-top-btn").addEventListener("click", () => {
 });
 
 //more button logic
-window.morebtn = document.getElementById("get-more-btn");
+const morebtn = document.getElementById("get-more-btn");
 morebtn.addEventListener("click", () => {
   //this button will get a new random dish
   getData();
@@ -92,7 +92,7 @@ morebtn.addEventListener("click", () => {
 
 //share on whatsapp button
 
-window.whatsappButton = document.getElementsByClassName("share")[0];
+const whatsappButton = document.getElementsByClassName("share")[0];
 
 whatsappButton.addEventListener("click", () => {
   shareOnWhatsApp();
