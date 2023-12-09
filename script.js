@@ -201,3 +201,5 @@ document.addEventListener("DOMContentLoaded", function () {
 //If needed can generate the image for popup with this
 // imageUrl: mealDetails.strMealThumb,
 //imageAlt: mealDetails.strMeal,
+
+// .

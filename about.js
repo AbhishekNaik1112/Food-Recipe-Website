@@ -8,3 +8,4 @@ darkModeBtn.addEventListener("click", () => {
   appContainer.classList.toggle("dark-mode");
 });
 //dark mode logic
+// .
