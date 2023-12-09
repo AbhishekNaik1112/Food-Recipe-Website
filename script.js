@@ -12,7 +12,6 @@ function getData() {
       //fetching the random dish using the random api
       const result = data.meals[0];
       console.log("Random Meal Details:", result);
-
       randommeal[0].innerHTML = `
             <h2>${result.strMeal}</h2>
             <img id="meal-img" src="${result.strMealThumb}" alt="${result.strMeal}">
@@ -44,11 +43,11 @@ function displayRecipeModal() {
     ${recipeDetails.ingredients}
     <h3>Instructions:</h3>
     <p>${recipeDetails.instructions}</p>                       
-`; // grabs the instuctions
+`; // grabs the instructions and ingredients that we want
 
   Swal.fire({
     html: modalContent,
-    confirmButtonText: "Close", //used the sweetalert cdn to implement the modal that is linked in the head of the html.
+    confirmButtonText: "Close", //used the sweet alert cdn to implement the modal that is linked in the head of the html.
   });
 }
 
